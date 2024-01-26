@@ -14,26 +14,34 @@ namespace Whatsapp.Commands
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
-        public Command(Action<object> action, Predicate<object> predicat = null)
+
+        public Func<object,Task>? AsyncAction { get; set; }
+        public Predicate<object>? Predicate { get; set; }
+
+        public Command(Func<object,Task> asyncAction, Predicate<object> predicate = null)
         {
-            this.action = action;
-            this.predicat = predicat;
-            if (this.predicat == null)
-                this.predicat = (obj) => true;
+            AsyncAction = asyncAction ?? throw new ArgumentNullException(nameof(asyncAction));
+            Predicate = predicate;
+
+            if (Predicate == null)
+                Predicate = (obj) => true;
         }
-
-
-        public Action<object>? action { get; set; }
-        public Predicate<object>? predicat { get; set; }
 
         public bool CanExecute(object? parameter)
         {
-            return predicat?.Invoke(parameter!) ?? false;
+            return Predicate?.Invoke(parameter!) ?? false;
         }
 
-        public void Execute(object? parameter)
+        public async void Execute(object? parameter)
         {
-            action?.Invoke(parameter!);
+            if (AsyncAction != null)
+            {
+                await AsyncAction.Invoke(parameter);
+            }
         }
+
+
+
+     
     }
 }

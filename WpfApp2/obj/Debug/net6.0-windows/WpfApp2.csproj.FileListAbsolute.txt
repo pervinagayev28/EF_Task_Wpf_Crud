@@ -54,3 +54,5 @@ C:\Users\user\OneDrive\Desktop\WpfApp2\WpfApp2\obj\Debug\net6.0-windows\refint\W
 C:\Users\user\OneDrive\Desktop\WpfApp2\WpfApp2\obj\Debug\net6.0-windows\WpfApp2.pdb
 C:\Users\user\OneDrive\Desktop\WpfApp2\WpfApp2\obj\Debug\net6.0-windows\WpfApp2.genruntimeconfig.cache
 C:\Users\user\OneDrive\Desktop\WpfApp2\WpfApp2\obj\Debug\net6.0-windows\ref\WpfApp2.dll
+C:\Users\user\OneDrive\Desktop\WpfApp2\WpfApp2\bin\Debug\net6.0-windows\Humanizer.dll
+C:\Users\user\OneDrive\Desktop\WpfApp2\WpfApp2\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Design.dll

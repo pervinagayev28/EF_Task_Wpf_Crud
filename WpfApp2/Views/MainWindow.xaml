@@ -9,6 +9,10 @@
 
     <Window.Resources>
         <ResourceDictionary>
+
+            <Style TargetType="DataGrid">
+                
+            </Style>
             <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
                 <Setter Property="Template">
                     <Setter.Value>
@@ -88,7 +92,7 @@
     </Window.Resources>
 
 
-    <Grid>
+    <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
@@ -135,18 +139,22 @@
                           materialDesign:HintAssist.Hint="Tables" HorizontalAlignment="Center" 
                               MinWidth="72">
                 </ComboBox>
-                <Button Command="{Binding GetCommand}" CommandParameter="{Binding ElementName=TableName,Path=SelectedValue}" Margin="10" Height="50" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                <Button Command="{Binding GetCommand}" CommandParameter="{Binding ElementName=MainGrid}" Margin="10" Height="50" Background="#FF8522BD" BorderBrush="#FF8522BD">
                     <TextBlock HorizontalAlignment="Center" Text="Get" FontFamily="Champagne &amp; Limousines"/>
                 </Button>
-                <Button Height="50" Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                <Button Command="{Binding UpdateCommand}" CommandParameter="{Binding ElementName=MainGrid}" Height="50" Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
                     <TextBlock HorizontalAlignment="Center" Text="Update" FontFamily="Champagne &amp; Limousines"/>
                 </Button>
-                <Button Height="50" Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+
+                <Button Command="{Binding InsertCommand}" CommandParameter="{Binding ElementName=MainGrid}" Height="50" Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
                     <TextBlock HorizontalAlignment="Center" Text="Insert" FontFamily="Champagne &amp; Limousines"/>
                 </Button>
-                <Button Height="50" Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                
+                 <Button Command="{Binding DeleteCommand}" Name="DeleteBtn" CommandParameter="{Binding ElementName=MainGrid}" Height="50" Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
                     <TextBlock HorizontalAlignment="Center" Text="Delete" FontFamily="Champagne &amp; Limousines"/>
                 </Button>
+                
+                
 
             </StackPanel>
         </Grid>
@@ -165,8 +173,17 @@
             </StackPanel>
 
         </Grid>
-        <DataGrid  BorderThickness="2" Grid.Row="1" Grid.Column="1" Margin="50">
+        <Grid  Grid.Row="1" Grid.Column="1" Margin="50">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.1*"/>
+            </Grid.RowDefinitions>
+            <DataGrid ItemsSource="{Binding datas}" HeadersVisibility="All"  SelectionChanged="changed" Name="DataGrid"  CanUserAddRows="True" IsReadOnly="False" />
 
-        </DataGrid>
+
+            <Label HorizontalAlignment="Center" Visibility="Hidden" Name="errorCode" VerticalAlignment="Center" FontSize="14" Foreground="Red" Grid.Row="1" Content="asdasdasdasdasdasda"/>
+        </Grid>
+
+
     </Grid>
 </Window>

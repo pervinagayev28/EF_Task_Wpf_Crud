@@ -26,5 +26,10 @@ namespace WpfApp2
             InitializeComponent();
             DataContext = new MainWindowViewModel();
         }
+
+        private void changed(object sender, SelectionChangedEventArgs e)
+        {
+            DeleteBtn.Command.CanExecute(MainGrid);
+        }
     }
 }

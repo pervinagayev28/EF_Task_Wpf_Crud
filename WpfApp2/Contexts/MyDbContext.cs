@@ -13,7 +13,7 @@ namespace ConsoleApp5.Contexts
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-47DGCU6\\SQL;Initial Catalog=MyLibraryDb;User ID=MySql;Password=pervina9266_1;Connect Timeout=30;");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-47DGCU6\\SQL;Initial Catalog=MyLibrarysdfsdDb;User ID=MySql;Password=pervina9266_1;Connect Timeout=30;");
             base.OnConfiguring(optionsBuilder);
         }
 

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "FWuCmTXBfzNZ14cDBhxj1ObVx1HuESsZcdWG3s52CmH1O0OWtvLna7lZgnVMFZxVycwNuzc7z6wzpQ9isGMjqA==",
+  "dgSpecHash": "5Qkw2LmaWZNsZUOlcZOlGlufZqVLb64RJY4Sh8PWy34dCtElSnbslpI64fsMQdqXr4tl9clLzKL/QBBmLixLgg==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\OneDrive\\Desktop\\WpfApp2\\WpfApp2\\WpfApp2.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -12,8 +13,10 @@
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.26\\microsoft.entityframeworkcore.6.0.26.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.26\\microsoft.entityframeworkcore.abstractions.6.0.26.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.26\\microsoft.entityframeworkcore.analyzers.6.0.26.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.26\\microsoft.entityframeworkcore.design.6.0.26.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.26\\microsoft.entityframeworkcore.relational.6.0.26.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.26\\microsoft.entityframeworkcore.sqlserver.6.0.26.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\6.0.26\\microsoft.entityframeworkcore.tools.6.0.26.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.caching.memory\\6.0.1\\microsoft.extensions.caching.memory.6.0.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
