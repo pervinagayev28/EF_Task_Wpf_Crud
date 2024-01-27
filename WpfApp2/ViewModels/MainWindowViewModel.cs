@@ -23,6 +23,9 @@ namespace WpfApp2.ViewModels
 
     public class MainWindowViewModel : ServiceINotifyPropertyChanged
     {
+        static bool check = true;
+        static bool checkInserted = false;
+
         public ObservableCollection<object> datas { get => datas1; set { datas1 = value; OnPropertyChanged(); } }
         public ObservableCollection<string> Tables { get => tables; set { tables = value; OnPropertyChanged(); } }
         private MyDbContext context = new();
@@ -35,6 +38,7 @@ namespace WpfApp2.ViewModels
         public ICommand UpdateCommand { get; set; }
         public ICommand InsertCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
+        public ICommand AddingNewItem { get; set; }
         public MainWindowViewModel()
         {
             startUp();
@@ -42,29 +46,18 @@ namespace WpfApp2.ViewModels
             UpdateCommand = new Command(ExecuteUpdateCommand, CanExecuteUpdateCommand);
             InsertCommand = new Command(ExecuteInsertCommand, CanExecuteUInsertCommand);
             DeleteCommand = new Command(ExecuteDeleteCommand, CanExecuteDeleteCommand);
+            AddingNewItem = new Command(ExecuteAddingNewItem);
         }
 
-        private bool CanExecuteDeleteCommand(object obj)
+        private async Task ExecuteAddingNewItem(object arg)
         {
-            dynamic data = ((DataGrid)((Grid)obj).FindName("DataGrid")).SelectedItem;
-            int? Id = default; ;
-            if (data is not null)
-            {
-                try
-                {
-                 Id = data?.Id;
-
-                }
-                catch (Exception)
-                {
-
-                }
-
-            }
-            return  ((DataGrid)((Grid)obj).FindName("DataGrid")).SelectedItem is not null
-            && Id != 0;
-
+            checkInserted = false;
         }
+
+        private bool CanExecuteDeleteCommand(object obj) =>
+            ((DataGrid)((Grid)obj).FindName("DataGrid")).SelectedItem is not null
+            && check
+            && checkInserted;
 
         private async Task ExecuteDeleteCommand(object arg)
         {
@@ -119,6 +112,8 @@ namespace WpfApp2.ViewModels
             //await context.AddRangeAsync(data);
             //await context.SaveChangesAsync();
             var tablename = ((ComboBox)((Grid)obj).FindName("TableName")).SelectedValue;
+
+
             switch (tablename)
             {
                 case "Author":
@@ -151,7 +146,20 @@ namespace WpfApp2.ViewModels
                 default:
                     break;
             }
-            await context.SaveChangesAsync();
+
+
+            try
+            {
+                await context.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                ((Label)((Grid)obj).FindName("errorCode")).Content = e.Message;
+                ((Label)((Grid)obj).FindName("errorCode")).Visibility = System.Windows.Visibility.Visible;
+                return;
+            }
+           ((Label)((Grid)obj).FindName("errorCode")).Visibility = System.Windows.Visibility.Hidden;
+            checkInserted = true;
             tempCount = datas.Count;
             await ExecuteGetCommand(obj);
         }
@@ -169,10 +177,10 @@ namespace WpfApp2.ViewModels
              ((ComboBox)((Grid)obj).FindName("TableName")).SelectedIndex != -1;
         private async Task ExecuteGetCommand(object obj)
         {
-
+            check = true;
             var tablename = ((ComboBox)((Grid)obj).FindName("TableName")).SelectedValue;
-            bool check = true; ;
             datas = new();
+
             switch (tablename)
             {
                 case "Author":
@@ -281,8 +289,8 @@ namespace WpfApp2.ViewModels
             }
             if (check)
                 tempCount = datas.Count;
-            else tempCount = 0;
-
+            else
+                tempCount = 0;
 
 
         }

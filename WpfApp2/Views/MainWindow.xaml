@@ -178,9 +178,9 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="0.1*"/>
             </Grid.RowDefinitions>
-            <DataGrid ItemsSource="{Binding datas}" HeadersVisibility="All"  SelectionChanged="changed" Name="DataGrid"  CanUserAddRows="True" IsReadOnly="False" />
+            <DataGrid AddingNewItem="foo" ItemsSource="{Binding datas}" HeadersVisibility="All"  SelectionChanged="changed" Name="DataGrid"  CanUserAddRows="True" IsReadOnly="False" />
 
-
+            <Button Visibility="Hidden" Name="AddingNewItem" Command="{Binding AddingNewItem}"/>
             <Label HorizontalAlignment="Center" Visibility="Hidden" Name="errorCode" VerticalAlignment="Center" FontSize="14" Foreground="Red" Grid.Row="1" Content="asdasdasdasdasdasda"/>
         </Grid>
 

@@ -31,5 +31,12 @@ namespace WpfApp2
         {
             DeleteBtn.Command.CanExecute(MainGrid);
         }
+
+      
+        private void foo(object sender, AddingNewItemEventArgs e)
+        {
+            AddingNewItem.Command.Execute(MainGrid);
+
+        }
     }
 }
